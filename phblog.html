@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Group 6 | Globalization and Education in the Philippines: A Double-Edged Sword</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background-color: #FAF8F4;
+    color: #1c1917;
+  }
+
+
+
+
+  /* Progress bar */
+  #reading-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: #c4421a;
+    z-index: 9999;
+    transition: width 0.1s linear;
+  }
+
+
+
+
+  /* Navbar */
+  .navbar {
+    background-color: #FAF8F4 !important;
+    border-bottom: 1px solid #e5e0d8;
+  }
+  .navbar-brand {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #78716c !important;
+  }
+  .nav-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: #c4421a;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 2px;
+  }
+
+
+
+
+  /* Hero */
+  .hero-section {
+    border-bottom: 1px solid #e5e0d8;
+    padding: 5rem 0 3.5rem;
+  }
+  .hero-category {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #c4421a;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.18;
+    color: #1c1917;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: #c4421a;
+  }
+  .hero-subtitle {
+    font-size: 1.05rem;
+    color: #57534e;
+    line-height: 1.75;
+  }
+  .hero-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #78716c;
+  }
+
+
+
+
+  /* Section labels */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #78716c;
+  }
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: #c4421a;
+  }
+  .section-divider {
+    border-top: 1px solid #e5e0d8;
+    flex: 1;
+  }
+
+
+
+
+  /* Headings */
+  h2.article-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: #1c1917;
+  }
+
+
+
+
+  /* Body text */
+  .article-body p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #292524;
+  }
+
+
+
+
+  /* Pull quote */
+  .pull-quote {
+    border-left: 4px solid #c4421a;
+    background: #fff7f2;
+    border-radius: 0 4px 4px 0;
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: #1c1917;
+    margin: 0;
+  }
+  .pull-quote cite {
+    font-family: 'DM Mono', monospace;
+    font-style: normal;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #78716c;
+  }
+
+
+
+
+  /* Stat cards */
+  .stat-card {
+    background: #fff8f2;
+    border: 1px solid #e5e0d8;
+    border-radius: 6px;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #c4421a;
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #78716c;
+    line-height: 1.5;
+  }
+
+
+
+
+  /* Issue cards */
+  .issue-card {
+    border: 1px solid #e5e0d8;
+    border-radius: 6px;
+    background: #fff;
+  }
+  .issue-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #c4421a;
+    opacity: 0.3;
+    line-height: 1;
+  }
+  .issue-card h5 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #1c1917;
+  }
+  .issue-card p {
+    font-size: 0.92rem;
+    color: #57534e;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+
+
+
+  /* Rizal block */
+  .rizal-block {
+    border-top: 1px solid #e5e0d8;
+    border-bottom: 1px solid #e5e0d8;
+  }
+  .rizal-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: #1c1917;
+    line-height: 1.4;
+  }
+  .rizal-attr {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #78716c;
+  }
+
+
+
+
+  /* References */
+  .references-section {
+    border-top: 2px solid #1c1917;
+  }
+  .references-section h6 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #78716c;
+  }
+  .ref-item {
+    font-size: 0.85rem;
+    color: #78716c;
+    line-height: 1.65;
+  }
+  .ref-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: #c4421a;
+    flex-shrink: 0;
+    padding-top: 3px;
+  }
+
+
+
+
+  /* Fade-in */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</head>
+<body>
+
+
+
+
+<div id="reading-progress"></div>
+
+
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top shadow-none py-3">
+  <div class="container">
+    <a href="index.html" class="navbar-brand text-decoration-none">
+      <i class="bi bi-arrow-left me-2"></i>Student Perspectives
+    </a>
+    <span class="navbar-brand"> Group 6</span>
+    <span class="nav-tag ms-auto">Contemporary World</span>
+  </div>
+</nav>
+
+
+
+
+<!-- Hero -->
+<section class="hero-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <p class="hero-category mb-3">Opinion · Globalization</p>
+        <h1 class="hero-title mb-4">Globalization and Education in the Philippines<br><em>A Double-Edged Sword</em></h1>
+        <p class="hero-subtitle mb-4">It gave me access to the world's knowledge — and showed me just how unequally that access is distributed. A college student's honest look at what globalization has done for, and to, Philippine education.</p>
+        <div class="hero-meta d-flex align-items-center gap-3">
+          <span>By Group 6</span>
+          <span class="text-muted">·</span>
+          <span>March 2026</span>
+          <span class="text-muted">·</span>
+          <span><i class="bi bi-clock me-1"></i>~8 min read</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Article -->
+<main class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 article-body">
+
+
+
+
+        <!-- 01 Introduction -->
+        <div class="d-flex align-items-center gap-3 mt-4 mb-4 fade-up">
+          <span class="section-num">01</span>
+          <div class="section-divider"></div>
+          <span class="section-label">Introduction</span>
+          <div class="section-divider"></div>
+        </div>
+
+
+
+
+        <p class="fade-up">Globalization has reshaped modern life around the world in many ways, and education is no exception. The effects of the increasingly interconnectedness of this globalization as college students can be seen through both the enriching and positive side, and at the same time the concerning and negative side.</p>
+
+
+
+
+        <p class="fade-up">On the one hand, globalization has opened doors to a wide range of knowledge that previous generations could never access. Various e-journals, academic papers, collaborative research platforms, and digital libraries have helped so much in the learning process of all students who have access to them.</p>
+
+
+
+
+        <p class="fade-up">And that is where the problem comes in, on the other hand those very same resources have brought to light the systemic inequalities and educational challenges that are faced by many. Globalization has brought numerous advantages and disadvantages, and to look at it on a clearer view we will focus on the Philippines’ education context.</p>
+
+
+
+
+        <!-- 02 The Good -->
+        <div class="d-flex align-items-center gap-3 mt-5 mb-4 fade-up">
+          <span class="section-num">02</span>
+          <div class="section-divider"></div>
+          <span class="section-label">The Good</span>
+          <div class="section-divider"></div>
+        </div>
+
+
+
+
+        <h2 class="article-heading mb-4 fade-up">Globalization made knowledge something you could just… access.</h2>
+
+
+
+
+        <p class="fade-up">It can be said that the most transformative and important benefit of globalization on education is the unmatched accessibility to knowledge. The internet, being such a huge part of the modern world, has made it possible for information to be way more accessible. Many academic institutions in the Philippines, such as the University of Santo Tomas and De La Salle University, and around the world have made publicly accessible e-journals and online libraries, providing students, researchers, and other academics access to a vast variety of information and research papers. This open source mindset and technology has helped push for universal access to education and made a shift into how knowledge is shared.</p>
+
+
+
+
+        <p class="fade-up">Beyond digital access, globalization has also made structural changes on the Philippine educational system. The introduction of the K-12 program stands as one of the most significant educational reforms and changes in Philippine education history. Implemented by the Department of Education, this system was designed to align the Philippines’ education system with international standards, to produce competent and job-ready, active, and responsible citizens (DepEd, 2024), and enabling Filipino graduates to compete academically and professionally on the global stage alongside those from other countries following similar educational frameworks. By extending the basic education from ten to thirteen years, the K-12 program aims to procure graduates who are not only academically competent but also technically skilled, emotionally mature, and ready for higher education, and the workforce.</p>
+
+
+
+
+        <p class="fade-up">In this way, globalization has served as a way for national educatonial reform, pushing the Philippines towards a more internationally competitive model of learning.</p>
+
+
+
+
+        <!-- Pull quote -->
+        <div class="pull-quote p-4 my-4 fade-up">
+          <p>"The Internet, as the great equalizer of the modern era, has democratized information in ways previously unimaginable — and students in the Philippines are among its beneficiaries."</p>
+          <cite class="d-block mt-3">Personal Reflection</cite>
+        </div>
+
+
+
+
+        <p class="fade-up">Globalization has also had tangible structural effects on Philippine education. The K-12 program — one of the most significant educational reforms in recent history — was designed to align the Philippines with international standards, producing graduates who are job-ready and globally competitive, comparable to peers from the US, India, China, and beyond (DepEd, 2024).</p>
+
+
+
+
+        <!-- Stat cards -->
+        <div class="row g-3 my-4 fade-up">
+          <div class="col-md-4">
+            <div class="stat-card p-4 h-100">
+              <div class="stat-num">13</div>
+              <div class="stat-label mt-2">Years of basic education under K-12 vs. the old 10-year system</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="stat-card p-4 h-100">
+              <div class="stat-num">140+</div>
+              <div class="stat-label mt-2">Countries now using a K-12 framework globally</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="stat-card p-4 h-100">
+              <div class="stat-num">∞</div>
+              <div class="stat-label mt-2">Research papers accessible to everyone right now, for free</div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <p class="fade-up">Beyond structure, globalization has fostered cross-cultural collaboration — exchange programs, joint research, internationally recognized certifications — all contributing to a richer, more diverse learning environment that prepares Filipino students for the world.</p>
+
+
+
+
+        <!-- 03 The Not-So-Good -->
+        <div class="d-flex align-items-center gap-3 mt-5 mb-4 fade-up">
+          <span class="section-num">03</span>
+          <div class="section-divider"></div>
+          <span class="section-label">The Not-So-Good</span>
+          <div class="section-divider"></div>
+        </div>
+
+
+
+
+        <h2 class="article-heading mb-4 fade-up">But let's be honest — not everyone has the same access and capabilities.</h2>
+
+
+
+
+        <p class="fade-up">For all its promise, globalization has also deepened inequalities that were already there. Here are three that hit the Philippines especially hard.</p>
+
+
+
+
+        <!-- Issue cards -->
+        <div class="d-flex flex-column gap-3 my-4 fade-up">
+          <div class="issue-card p-4">
+            <div class="d-flex gap-3 align-items-start">
+              <div class="issue-num">I</div>
+              <div>
+                <h5 class="mb-2">The Digital Divide</h5>
+                <p>While students in Metro Manila enjoy fast internet and modern devices, communities in remote provinces often lack both. Factors like electronic scarcity and unreliable electricity mean roughly 16% of Filipinos remain offline in 2025 (Frąckiewicz, 2025) — locked out of the very tools globalization promised for everyone.</p>
+              </div>
+            </div>
+          </div>
+          <div class="issue-card p-4">
+            <div class="d-flex gap-3 align-items-start">
+              <div class="issue-num">II</div>
+              <div>
+                <h5 class="mb-2">Brain Drain</h5>
+                <p>Higher pay, better quality of life, more opportunity — hard to argue against on a personal level. But collectively, the emigration of skilled Filipino professionals has created critical shortages in IT, healthcare, and engineering (Katlene O. & Cacho-Laurejas, 2025). Fewer experts stay to teach, mentor, or build the next generation.</p>
+              </div>
+            </div>
+          </div>
+          <div class="issue-card p-4">
+            <div class="d-flex gap-3 align-items-start">
+              <div class="issue-num">III</div>
+              <div>
+                <h5 class="mb-2">Diploma Mills</h5>
+                <p>Privatization and marketization of education have created space for fraudulent institutions that charge for a diploma without rigorous learning (Bull, 2019). Students on social media have described them bluntly as a "scam and money-grabbing scheme that enriches the institution, not the mind."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <p class="fade-up">The painful irony is this: globalization promised universal access to quality education — but its uneven implementation has, in many cases, <strong>widened the very gaps it was supposed to close.</strong> The Digital Divide, Brain Drain, and diploma mills aren't separate issues. They're three sides of the same broken system of education cause by globalization.</p>
+
+
+
+        <!-- 04 Moving Forward -->
+        <div class="d-flex align-items-center gap-3 mt-5 mb-4 fade-up">
+          <span class="section-num">04</span>
+          <div class="section-divider"></div>
+          <span class="section-label">Comparative Analysis</span>
+          <div class="section-divider"></div>
+        </div>
+
+
+
+
+        <h2 class="article-heading mb-4 fade-up">What the Philippines Can Learn from Indonesia’s Education System?</h2>
+
+
+        <p class="fade-up">To better understand how the Philippines can respond to the challenges posed by globalization in education, it is useful to examine Indonesia's experience. Similar to the Philippines, Indonesia faces geographic fragmentation, socioeconomic inequality, and uneven access to educational resources. Despite these shared challenges, Indonesia has made notable progress in improving the quality of its education system through targeted and sustained reforms. These developments provide a valuable point of comparison and offer practical insights for addressing systemic issues within the Philippine educational context.</p>
+        <p class="fade-up">One of Indonesia’s most significant reforms lies in its emphasis on improving teacher quality. Through initiatives led by the Ministry of Education, Culture, Research, and Technology, the country implemented nationwide teacher certification and continuous professional development programs. These reforms, supported by salary incentives, have contributed to improved teaching performance and better student outcomes (Chang et al., 2014). In contrast, while the Department of Education has also prioritized teacher training, disparities in implementation and access remain evident, particularly in rural areas. Strengthening teacher development systems and ensuring nationwide consistency are areas where the Philippines can draw lessons from Indonesia.</p>
+        <p class="fade-up">In addition, Indonesia’s decentralized approach to education governance has given local governments greater flexibility to address specific educational needs. This has enabled more responsive, context-based solutions, improving the efficiency of policy implementation (World Bank, 2020). Complementing this, Indonesia has expanded access to education through social support programs such as the Program Indonesia Pintar, which provides financial assistance to students from disadvantaged backgrounds and has helped reduce dropout rates (UNESCO, 2021). While the Philippines has similar initiatives, such as conditional cash transfer programs, gaps in delivery and coverage persist. Learning from Indonesia’s approach, the Philippines can further strengthen both local governance and targeted support systems to ensure more equitable access to education.</p>
+        <p class="fade-up">Beyond government efforts, non-governmental organizations (NGOs) also play a vital role in both countries. In Indonesia, organizations such as Tanoto Foundation and Putera Sampoerna Foundation contribute to improving teacher training and expanding educational opportunities. Similarly, in the Philippines, groups like Teach for the Philippines and Philippine Business for Education support reforms through advocacy, research, and direct intervention. Indonesia’s experience demonstrates that addressing educational challenges requires not only government action but also sustained collaboration with civil society. For the Philippines, adopting a more integrated and consistent approach across these sectors may help bridge persistent gaps and improve overall educational quality.</p>
+       
+        <div class="d-flex align-items-center gap-3 mt-5 mb-4 fade-up">
+          <span class="section-num">05</span>
+          <div class="section-divider"></div>
+          <span class="section-label">Moving Forward</span>
+          <div class="section-divider"></div>
+        </div>
+
+
+
+
+        <h2 class="article-heading mb-4 fade-up">So what can be done and who can do it?</h2>
+
+
+        <p class="fade-up">Globalization has made irreversible changes in education in the Philippines, expanding its reach, deepening the content, and connecting learners across borders in ways that were unimaginable before. Yet, for all of its promise and positives, it has brought a lot of challenges that demand urgent attention. These challenges are not abstract problems, they affect real students, real communities, and the future of the nation.</p>
+       
+        <p class="fade-up">These challenges have not gone entirely unnoticed. The Philippine government has taken steps to confront them through targeted policies and reforms, such as the National Education and Workforce Development Plan, which seeks to “address systemic challenges in Philippine education through a unified, evidence-based approach” (Republika News, 2026). Such initiatives signal recognition at the highest levels of governance that education is not merely a social service but a national priority, one that must be continuously improved and made equitable for all.</p>
+       
+        <p class="fade-up">Yet policy alone is not enough. Several important actors such as academic institutions, the private sector, and individual citizens themselves all have a role to play. Internet infrastructure must be expanded to underserved communities. Job opportunities and economic growth must improve to retain skilled workers within the country. And above all, there must be a commitment from all to the principle that education is a right, not a privilege.</p>
+        <p class="fade-up"></p>
+
+
+        <!-- Qoute -->
+        <div class="rizal-block text-center py-5 my-5 fade-up">
+          <div class="rizal-quote mb-3">"Ang kabataan ang pag-asa ng bayan."</div>
+          <div class="rizal-attr">— José Rizal</div>
+        </div>
+
+
+        <p class="fade-up">Jose Rizal, the country's national hero believed in this quote. That the youth are the hope of the nation. If that hope is to be true and realized, it must be properly done that the youth are nurtured through an educational system that is not only globally competitive but also deeply just and equal. As the world continues to evolve and new challnges emerge, the government, private institutions, and citizens of the Philippines must remain resolute in that no student is left behind, and the promise of education is available for every Filipino, no matter what.</p>
+
+
+
+
+        <!-- References -->
+        <div class="references-section pt-4 mt-5 fade-up">
+          <h6 class="mb-4">References</h6>
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex gap-3 ref-item"><span class="ref-num">01</span><span>Bernard Bull. (2019, January 10). What Is A Diploma Mill? - The EvoLLLution. What Is A Diploma Mill? - The EvoLLLution. https://evolllution.com/programming/teaching-and-learning/what-is-a-diploma-mill</span></div>
+            <div class="d-flex gap-3 ref-item"><span class="ref-num">02</span><span>Chang, M. C., Shaeffer, S., Al-Samarrai, S., de Ree, J., & Stevenson, R. (2014). Teacher reform in Indonesia: The role of politics and evidence in policy making. World Bank. https://unesdoc.unesco.org/ark:/48223/pf0000370966.locale=en</span></div>
+            <div class="d-flex gap-3 ref-item"><span class="ref-num">03</span><span>Department of Education (DepEd). (2024). <em>K to 12 Program overview.</em> https://www.deped.gov.ph</span></div>
+            <div class="d-flex gap-3 ref-item"><span class="ref-num">04</span><span>Department of Education (DepEd). (2024). <em>K to 12 basic education.</em> https://www.deped.gov.ph/wp-content/uploads/DO_s2024_010.pdf</span></div>
+            <div class="d-flex gap-3 ref-item"><span class="ref-num">05</span><span>Frąckiewicz, M. (2025, August 24). Internet access in the Philippines: a comprehensive report. TechStock2. https://ts2.tech/en/internet-access-in-the-philippines-a-comprehensive-report/</span></div>
+            <div class="d-flex gap-3 ref-item"><span class="ref-num">06</span><span>Masuhay, Edilmar & Herrera, Fernando. (2020). Globalization has changed the system of education, shaping the education doesn't make any changes. </span></div>
+            <div class="d-flex gap-3 ref-item"><span class="ref-num">07</span><span>Republika News. (2026, January). National Education and Workforce Development Plan launched. https://www.republika.com.ph</span></div>
+            <div class="d-flex gap-3 ref-item"><span class="ref-num">08</span><span>Sarvi, J. E. (2015, December). Transitions to K–12 Education Systems: Experiences from Five Case Countries. Asian Development Bank. https://www.adb.org/publications/transitions-k-12-education-systems-five-case-countries</span></div>
+            <div class="d-flex gap-3 ref-item"><span class="ref-num">09</span><span>Tanoto Foundation. (n.d.). PINTAR program: Improving education quality in Indonesia. https://www.tanotofoundation.org/id/lingkungan-belajar/pintar/</span></div>
+            <div class="d-flex gap-3 ref-item"><span class="ref-num">10</span><span>Teach for the Philippines. (n.d.). About Teach for the Philippines. https://teachforthephilippines.com/</span></div>
+            <div class="d-flex gap-3 ref-item"><span class="ref-num">11</span><span>World Bank. (2018). Improving teaching and learning in Indonesia. https://www.worldbank.org/en/country/indonesia/brief/improving-teaching-and-learning-in-indonesia</span></div>
+
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+<footer class="border-top py-4 mt-4">
+  <div class="container">
+    <p class="text-center mb-0" style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#78716c;">Group 6 · Contemporary World · 2026</p>
+  </div>
+</footer>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Reading progress
+  window.addEventListener('scroll', () => {
+    const d = document.documentElement;
+    const pct = d.scrollTop / (d.scrollHeight - d.clientHeight) * 100;
+    document.getElementById('reading-progress').style.width = pct + '%';
+  });
+
+
+
+
+  // Fade-in on scroll
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

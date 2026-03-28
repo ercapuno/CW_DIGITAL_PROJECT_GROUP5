@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Group 6 | Home</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background-color: #FAF8F4;
+    color: #1c1917;
+  }
+
+
+
+
+  /* Navbar */
+  .navbar {
+    background-color: #FAF8F4 !important;
+    border-bottom: 1px solid #e5e0d8;
+  }
+  .navbar-brand {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #78716c !important;
+  }
+  .nav-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: #c4421a;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 2px;
+  }
+
+
+
+
+  /* Hero */
+  .hero-section {
+    border-bottom: 1px solid #e5e0d8;
+    padding: 5rem 0 3.5rem;
+  }
+  .hero-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #c4421a;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #1c1917;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: #c4421a;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: #57534e;
+    line-height: 1.75;
+    max-width: 560px;
+  }
+
+
+
+
+  /* Section label */
+  .section-label-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-label-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #78716c;
+    white-space: nowrap;
+  }
+  .section-divider {
+    flex: 1;
+    border-top: 1px solid #e5e0d8;
+  }
+
+
+
+
+  /* Blog cards */
+  .blog-card {
+    background: #fff;
+    border: 1px solid #e5e0d8;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+  }
+  .blog-card:hover {
+    box-shadow: 0 12px 40px rgba(28,25,23,0.1);
+    transform: translateY(-4px);
+    border-color: white;
+    color: inherit;
+  }
+  .blog-card:hover .card-arrow {
+    transform: translateX(4px);
+    color: white;
+  }
+
+
+
+
+  .card-img-area {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-img-area-1 { background: linear-gradient(135deg, #fff7f2 0%, #fde8d8 100%); }
+  .card-img-area-2 { background: linear-gradient(135deg, #f2f5ff 0%, #dce4ff 100%); }
+
+
+
+
+  .card-img-icon {
+    font-size: 3.5rem;
+    opacity: 0.55;
+  }
+  .card-img-area-1 .card-img-icon { color: #c4421a; }
+  .card-img-area-2 .card-img-icon { color: #3b52c4; }
+
+
+
+
+  .card-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    color: #fff;
+  }
+  .badge-orange { background: #c4421a; }
+  .badge-blue   { background: #3b52c4; }
+
+
+
+
+  .card-body-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #78716c;
+    margin-bottom: 10px;
+  }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1c1917;
+    margin-bottom: 10px;
+  }
+  .card-excerpt {
+    font-size: 0.9rem;
+    color: #57534e;
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 1.25rem;
+  }
+  .card-footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid #f0ece6;
+  }
+  .card-read-time {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #a8a29e;
+  }
+  .card-arrow {
+    font-size: 1rem;
+    color: #a8a29e;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+
+
+
+  /* Footer */
+  footer {
+    border-top: 1px solid #e5e0d8;
+  }
+  .footer-brand {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #78716c;
+  }
+
+
+
+
+  /* Fade-in */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: none; }
+  .fade-up.delay-1 { transition-delay: 0.1s; }
+  .fade-up.delay-2 { transition-delay: 0.2s; }
+</style>
+</head>
+<body>
+
+
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top shadow-none py-3">
+  <div class="container">
+    <span class="navbar-brand">Group 6</span>
+    <span class="nav-tag ms-auto">Contemporary World</span>
+  </div>
+</nav>
+
+
+
+
+<!-- Hero -->
+<section class="hero-section">
+  <div class="container">
+    <p class="hero-label mb-3">Prelim Exam_Digital Project</p>
+    <h1 class="hero-title mb-4">Digital Products:<br><em>Blogs on Globalization and the Lack of Quality Education </em></h1>
+  </div>
+</section>
+
+
+
+
+<!-- Posts -->
+<section class="py-5">
+  <div class="container">
+
+
+
+
+    <div class="section-label-row mb-4 fade-up">
+      <span class="section-label-text">Latest Posts</span>
+      <div class="section-divider"></div>
+    </div>
+
+
+
+
+    <div class="row g-4">
+
+
+
+
+      <!-- Card 1 -->
+      <div class="col-md-6 fade-up delay-1">
+        <a href="phblog.html" class="blog-card h-100">
+          <div class="card-img-area card-img-area-1">
+            <i class="bi bi-globe-americas card-img-icon"></i>
+            <span class="card-badge badge-orange">Philippines</span>
+          </div>
+          <div class="card-body-content">
+            <div class="card-meta">
+              <i class="bi bi-calendar3 me-1"></i>March 2026
+              <span class="mx-2">·</span>
+              Education in the Philippines
+            </div>
+            <div class="card-title">Globalization and Education in the Philippines: A Double-Edged Sword</div>
+            <p class="card-excerpt">It gave me access to the world's knowledge and showed me just how unequally that access is distributed. An honest look at what globalization has done for, and to, Philippine education.</p>
+            <div class="card-footer-row">
+              <span class="card-read-time"><i class="bi bi-clock me-1"></i>~8 min read</span>
+              <i class="bi bi-arrow-right card-arrow"></i>
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+
+
+      <!-- Card 2 -->
+      <div class="col-md-6 fade-up delay-2">
+        <a href="worldwideblog.html" class="blog-card h-100">
+          <div class="card-img-area card-img-area-2">
+            <i class="bi bi-person-raised-hand card-img-icon"></i>
+            <span class="card-badge badge-blue">Reflection</span>
+          </div>
+          <div class="card-body-content">
+            <div class="card-meta">
+              <i class="bi bi-calendar3 me-1"></i>March 2026
+              <span class="mx-2">·</span>
+              Education Worldwide
+            </div>
+            <div class="card-title">A Right Not a Privilege: The Ongoing Fight for Quality Education Worldwide</div>
+            <p class="card-excerpt">Looking at the world and the inequalities brought by globalization to the access to quality education. </p>
+            <div class="card-footer-row">
+              <span class="card-read-time"><i class="bi bi-clock me-1"></i>~7 min read</span>
+              <i class="bi bi-arrow-right card-arrow"></i>
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Footer -->
+<footer class="py-4 mt-4">
+  <div class="container text-center">
+    <p class="footer-brand mb-0">Group 6 · Contemporary World · 2026</p>
+  </div>
+</footer>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

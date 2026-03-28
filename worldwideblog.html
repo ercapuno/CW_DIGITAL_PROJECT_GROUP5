@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Group 6 | Global Education Perspective</title>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+
+<style>
+body {
+  font-family: 'Lora', Georgia, serif;
+  background-color: #FAF8F4;
+  color: #1c1917;
+}
+
+
+/* Progress bar */
+#reading-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: #3b52c4;
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+
+/* Navbar */
+.navbar {
+  background-color: #FAF8F4 !important;
+  border-bottom: 1px solid #e5e0d8;
+}
+.navbar-brand {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #78716c !important;
+}
+.nav-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: #3b52c4;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 2px;
+}
+
+
+/* Hero */
+.hero-section {
+  border-bottom: 1px solid #dce4ff;
+  padding: 5rem 0 3.5rem;
+  background: linear-gradient(160deg, #f2f5ff 0%, #FAF8F4 60%);
+}
+.hero-category {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #3b52c4;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+}
+.hero-title em { color: #3b52c4; font-style: italic; }
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: #57534e;
+  line-height: 1.75;
+}
+.hero-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #78716c;
+}
+
+
+/* Section */
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #78716c;
+}
+.section-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: #3b52c4;
+}
+.section-divider {
+  border-top: 1px solid #dce4ff;
+  flex: 1;
+}
+
+
+/* Headings */
+h2.article-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 700;
+}
+
+
+/* Body */
+.article-body p {
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+
+/* Pull quote */
+.pull-quote {
+  border-left: 4px solid #3b52c4;
+  background: #f2f5ff;
+  border-radius: 0 4px 4px 0;
+}
+.pull-quote p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #1c1917;
+  margin: 0;
+}
+.pull-quote cite {
+  font-family: 'DM Mono', monospace;
+  font-style: normal;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #78716c;
+}
+
+
+/* Stat cards */
+.stat-card {
+  background: #f2f5ff;
+  border: 1px solid #dce4ff;
+  border-radius: 6px;
+}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #3b52c4;
+  line-height: 1;
+}
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #78716c;
+  line-height: 1.5;
+}
+
+
+/* Issue cards */
+.issue-card {
+  border: 1px solid #dce4ff;
+  border-radius: 6px;
+  background: #fff;
+}
+.issue-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #3b52c4;
+  opacity: 0.3;
+}
+
+
+/* Dark highlight box */
+.highlight-box {
+  background: #1e2a6e;
+  color: #f2f5ff;
+  border-radius: 6px;
+}
+.highlight-box p {
+  font-size: 1rem;
+  line-height: 1.85;
+  opacity: 0.92;
+  margin: 0;
+}
+.highlight-box strong {
+  color: #93a8ff;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+}
+
+
+/* References */
+.references-section {
+  border-top: 2px solid #3b52c4;
+}
+.references-section h6 {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #78716c;
+}
+.ref-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: #3b52c4;
+  flex-shrink: 0;
+  padding-top: 3px;
+}
+.ref-item {
+  font-size: 0.85rem;
+  color: #78716c;
+  line-height: 1.65;
+}
+
+
+/* Fade */
+.fade-up {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: none;
+}
+</style>
+</head>
+
+
+<body>
+
+
+<div id="reading-progress"></div>
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top py-3">
+  <div class="container">
+    <a href="index.html" class="navbar-brand text-decoration-none">
+      <i class="bi bi-arrow-left me-2"></i>Student Perspectives
+    </a>
+    <span class="navbar-brand">Group 6</span>
+    <span class="nav-tag ms-auto">Contemporary World</span>
+  </div>
+</nav>
+
+
+<!-- Hero -->
+<section class="hero-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <p class="hero-category mb-3">Opinion · Global</p>
+        <h1 class="hero-title mb-4">
+          A Right Not a Privilege<br>
+          <em>The Ongoing Fight for Quality Education Worldwide</em>
+        </h1>
+        <p class="hero-subtitle mb-4">
+          Education is one of the strongest forces shaping societies today, yet millions remain excluded as globalization continues to expand.
+        </p>
+        <div class="hero-meta d-flex align-items-center gap-3">
+          <span>By Group 6</span>
+          <span class="text-muted">·</span>
+          <span>March 2026</span>
+          <span class="text-muted">·</span>
+          <span><i class="bi bi-clock me-1"></i>~7 min read</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Article -->
+<main class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 article-body">
+
+
+        <!-- INTRO -->
+        <div class="d-flex align-items-center gap-3 mt-4 mb-4 fade-up">
+          <span class="section-num">01</span>
+          <div class="section-divider"></div>
+          <span class="section-label">Introduction</span>
+          <div class="section-divider"></div>
+        </div>
+
+
+        <p class="fade-up">Nowhere else do we see change so clearly as in how fast machines learn and people link up, shaping life everywhere through constant contact. At the heart of these shifts sits a slow blending — not just of markets but traditions, systems, ways of living — stretching across continents.</p>
+
+
+        <p class="fade-up">Growth blooms here, yes, along with wider views on art, belief, thought — but gaps grow too, especially when some get great schools while others get almost nothing. Missing school stays heavy on Earth, even after years of promises; far too many boys, girls, grown-ups stay locked out, year after year.</p>
+
+
+        <!-- Opportunities -->
+        <div class="d-flex align-items-center gap-3 mt-5 mb-4 fade-up">
+          <span class="section-num">02</span>
+          <div class="section-divider"></div>
+          <span class="section-label">Opportunities</span>
+          <div class="section-divider"></div>
+        </div>
+
+
+        <h2 class="article-heading mb-4 fade-up">Global Efforts and Opportunities</h2>
+
+
+        <p class="fade-up">Fixing this problem happens in various ways, involving many groups. National governments usually handle decisions about schooling, money for institutions, plus putting programs into practice — like how the Philippines runs its 4Ps to help low-income households keep kids in class. When it comes to global efforts, UNESCO leads the push so everyone gets fair access to learning before 2030 under SDG 4. Loans and funds for classrooms and teacher training often come from the World Bank, which spends more on education across poorer nations than any other outside source. Local actions show up through informal classes managed by nonprofits including Save the Children and Malala Fund, aiming especially at getting girls educated; meanwhile tech firms like Microsoft and Google work behind scenes expanding online reach for those left out.</p>
+
+
+        <div class="pull-quote p-4 my-4 fade-up">
+          <p>"Education is not a privilege — it is a fundamental human right."</p>
+          <cite class="d-block mt-3">Global Perspective</cite>
+        </div>
+
+
+        <div class="row g-3 my-4 fade-up">
+          <div class="col-md-4">
+            <div class="stat-card p-4 text-center h-100">
+              <div class="stat-num">617M</div>
+              <div class="stat-label mt-2">Children not meeting learning standards</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="stat-card p-4 text-center h-100">
+              <div class="stat-num">25%</div>
+              <div class="stat-label mt-2">Internet access in poorer countries</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="stat-card p-4 text-center h-100">
+              <div class="stat-num">2030</div>
+              <div class="stat-label mt-2">Global education goal</div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Challenges -->
+        <div class="d-flex align-items-center gap-3 mt-5 mb-4 fade-up">
+          <span class="section-num">03</span>
+          <div class="section-divider"></div>
+          <span class="section-label">Challenges</span>
+          <div class="section-divider"></div>
+        </div>
+
+
+        <div class="issue-card p-4 fade-up">
+          <p class="mb-0">One big hurdle worldwide ties back to deep-rooted systems. Families lack money — school costs and supplies become impossible burdens, while weak economies and missing state support pack classrooms and leave teachers unassigned. Girls face added blocks, shaped by bias, tradition, locked out along with entire communities left behind when war drives people away each year. A split grows sharper online: just over a quarter in poorer nations can reach the web compared to nearly all in richer ones, leaving those already struggling even farther behind in a tech-driven age. Poor learning doesn't just fail students now — it drags on for years after. When one person misses school, jobs stay out of reach, trapping families in hardship for years. Poor learning across a country means workers can't perform well, slowing down how fast the economy moves forward.</p>
+        </div>
+
+        <div class="d-flex align-items-center gap-3 mt-5 mb-4 fade-up">
+          <span class="section-num">04</span>
+          <div class="section-divider"></div>
+          <span class="section-label">Attainability</span>
+          <div class="section-divider"></div>
+        </div>
+
+         <h2 class="article-heading mb-4 fade-up">Attainability of SDG 4: Quality Education</h2> 
+        <p class="fade-up">The attainment of SDG 4 on Quality Education remains achievable but is currently off-track, and progress has slowed further due to the COVID-19 crisis. Between 2015 and 2024, student completion rates increased across divisions, but only modestly. Despite minimal improvements in completion rates, proficiency in mathematics and reading remains in limbo, with proficiency levels declining further: mathematics by 15 points and reading by 10 points. Other barriers that the education system is facing across the world are a lack of infrastructure to cater to diverse student populations, students with disabilities, and girls, economic constraints, as well as low ICT skills that contribute to the digital divide.</p>
+        <p class="fade-up">Education is a major player that could help achieve the Sustainable Development Goals. With quality education being the catalyst for breaking out of poverty. Reducing inequalities and gender discrimination, improving health, and sustaining lives. Education is crucial to creating a more peaceful society. Despite all these goals being linked to quality education, financing remains the main obstacle to the accessibility of quality education for all. Education must become a priority in national investment by governments, including free education for all, including vulnerable or marginalized groups, basic school infrastructure, teacher training, and digital literacy.</p>
+
+
+        <!-- Conclusion -->
+        <div class="d-flex align-items-center gap-3 mt-5 mb-4 fade-up">
+          <span class="section-num">05</span>
+          <div class="section-divider"></div>
+          <span class="section-label">Conclusion</span>
+          <div class="section-divider"></div>
+        </div>
+
+
+        <p class="fade-up">Fragile schools leave people open to false ideas, radical views — democracy and fair leadership pay the price. When things reach breaking point, working together becomes unavoidable. More money must flow into classrooms. Teachers need better preparation, no question. Funding from global bodies cannot shrink back. Companies ought to help close tech gaps between regions. Locals must stand up, push for every child's chance to study.</p>
+
+
+        <div class="highlight-box p-4 p-md-5 my-4 fade-up">
+          <p><strong>Education must be treated as a universal right supported by global cooperation and innovation.</strong> The cost of inaction is not just measured in test scores — it is measured in generations.</p>
+        </div>
+
+
+        <!-- References -->
+        <div class="references-section pt-4 mt-5 fade-up">
+          <h6 class="mb-4">References</h6>
+          <div class="d-flex flex-column gap-3">
+
+
+            <div class="d-flex gap-3 ref-item">
+              <span class="ref-num">01</span>
+              <span>ISPI. (2025, April 4). <em>The digital divide: A barrier to social, economic and political equity.</em> https://ispi.org</span>
+            </div>
+
+
+            <div class="d-flex gap-3 ref-item">
+              <span class="ref-num">02</span>
+              <span>Langthaler, M., & Malik, J. (2023). <em>Inequalities in education from a global perspective: Theoretical approaches, dimensions and policy discussions</em> (Briefing Paper No. 34). Austrian Foundation for Development Research. https://doi.org/10.60637/2023-bp34</span>
+            </div>
+
+
+            <div class="d-flex gap-3 ref-item">
+              <span class="ref-num">03</span>
+              <span>Malala Fund. (2020). <em>Girls' education and COVID-19.</em> https://malala.org</span>
+            </div>
+
+
+            <div class="d-flex gap-3 ref-item">
+              <span class="ref-num">04</span>
+              <span>Scholte, J. A. (2005). <em>Globalization: A critical introduction.</em> https://www.academia.edu/37950875/</span>
+            </div>
+
+
+            <div class="d-flex gap-3 ref-item">
+              <span class="ref-num">05</span>
+              <span>Stiglitz, J. E. (2002). <em>Globalization and its discontents.</em> W. W. Norton & Company. https://epdf.pub/globalization-and-its-discontents.html</span>
+            </div>
+
+
+            <div class="d-flex gap-3 ref-item">
+              <span class="ref-num">06</span>
+              <span>UNESCO. (2024). <em>Global education monitoring report 2024.</em> https://www.unesco.org/reports/gem-report/en/2024-monitoringsdg4</span>
+            </div>
+
+
+            <div class="d-flex gap-3 ref-item">
+              <span class="ref-num">07</span>
+              <span>UNESCO Institute for Statistics. (2023). <em>617 million children and adolescents not achieving minimum proficiency levels in reading and mathematics.</em> https://uis.unesco.org</span>
+            </div>
+
+
+            <div class="d-flex gap-3 ref-item">
+              <span class="ref-num">08</span>
+              <span>UNICEF. (2019). <em>Every child learns: UNICEF education strategy 2019–2030.</em> https://www.unicef.org/reports/UNICEF-education-strategy-2019-2030</span>
+            </div>
+
+
+            <div class="d-flex gap-3 ref-item">
+              <span class="ref-num">09</span>
+              <span>United Nations. (2015). <em>Transforming our world: The 2030 agenda for sustainable development.</em> https://sdgs.un.org/2030agenda</span>
+            </div>
+
+            <div class="d-flex gap-3 ref-item">
+              <span class="ref-num">10</span>
+              <span>United Nations. (n.d.). <em>Quality education. United Nations Sustainable Development.</em>https://www.un.org/sustainabledevelopment/education/</span>
+            </div>
+
+            <div class="d-flex gap-3 ref-item">
+              <span class="ref-num">11</span>
+              <span>World Bank. (2018). <em>World development report 2018: Learning to realize education's promise.</em> https://doi.org/10.1596/978-1-4648-1096-1</span>
+            </div>
+
+
+            <div class="d-flex gap-3 ref-item">
+              <span class="ref-num">12</span>
+              <span>World Bank. (2022). <em>Education overview.</em> https://www.worldbank.org/en/topic/education</span>
+            </div>
+
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<footer class="border-top py-4 mt-4">
+  <div class="container text-center">
+    <p class="mb-0" style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#78716c;">Group 6 · Contemporary World · 2026</p>
+  </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  window.addEventListener('scroll', () => {
+    const d = document.documentElement;
+    const pct = d.scrollTop / (d.scrollHeight - d.clientHeight) * 100;
+    document.getElementById('reading-progress').style.width = pct + '%';
+  });
+
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+
+</body>
+</html>
+
